@@ -48,6 +48,9 @@ enum IconError: Error {
 }
 
 public final class FavIcon {
+
+    public static var customizeUserAgent: String?
+
     /// Scans a base URL, attempting to determine all of the supported icons that can
     /// be used for favicon purposes.
     ///

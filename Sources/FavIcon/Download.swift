@@ -48,6 +48,9 @@ func downloadURLs(_ urls: [URL], method: String = "GET", completion: @escaping (
         dispatchGroup.enter()
 
         var request = URLRequest(url: url)
+        if let customizeUserAgent = FavIcon.customizeUserAgent {
+            request.setValue(customizeUserAgent, forHTTPHeaderField: "User-Agent")
+        }
         request.httpMethod = method
         let task = downloadSession.dataTask(with: request) { data, response, error in
             defer {
